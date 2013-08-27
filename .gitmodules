@@ -1,3 +1,6 @@
 [submodule ".ssh"]
 	path = .ssh
 	url = jhoblitt@hoblitt.com:/gitroot/ssh.git
+[submodule ".vim"]
+	path = .vim
+	url = jhoblitt@hoblitt.com:/gitroot/vim.git
