@@ -14,6 +14,8 @@ autocmd FileType c :set cindent
 autocmd FileType perl :set cindent
 autocmd FileType perl :set cindent
 autocmd BufEnter *.t set filetype=perl
+autocmd FileType ruby :set tabstop=2
+autocmd FileType ruby :set shiftwidth=2
 
 execute pathogen#infect()
  
@@ -57,3 +59,10 @@ endfunc
 
 " Clear search highlighting
 map <F12> :nohlsearch<CR>
+
+" exit vim with an error code
+" from http://stackoverflow.com/questions/2786619/how-do-you-cancel-an-external-git-diff
+if &diff
+  map Q :cquit!<CR>
+  map q :cquit!<CR>
+endif
