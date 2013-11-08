@@ -63,3 +63,6 @@ PATH=$HOME/.rvm/bin:$PATH # Add RVM to PATH for scripting
 
 # have to manually source bash_completion.sh on gentoo
 [[ -f /etc/profile.d/bash_completion.sh ]] && source /etc/profile.d/bash_completion.sh 
+
+# setup ssh agent
+[[ -f ${HOME}/.ssh/setup_ssh_agent.sh ]] && source ${HOME}/.ssh/setup_ssh_agent.sh
