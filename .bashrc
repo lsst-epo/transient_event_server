@@ -5,6 +5,9 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+# enable vi mode
+set -o vi
+
 #source ~/.bashrc.d/ansi-colors.sh
 source ${HOME}/.bashrc.d/*
 
