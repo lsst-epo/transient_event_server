@@ -56,12 +56,10 @@ git_prompt ()
 PROMPT_COMMAND='PS1="${TITLEBAR}$(git_prompt) ${LIGHT_BLUE}\w \$ ${NO_COLOR}"'
 
 PATH=${HOME}/.bin:${PATH}
-
-# added by travis gem
-source /home/jhoblitt/.travis/travis.sh
-
-
 PATH=$HOME/.rvm/bin:$PATH # Add RVM to PATH for scripting
+
+# travis.sh is installed by the travis gem
+[[ -f ${HOME}/.travis/travis.sh ]] && source ${HOME}/.travis/travis.sh
 
 # have to manually source bash_completion.sh on gentoo
 [[ -f /etc/profile.d/bash_completion.sh ]] && source /etc/profile.d/bash_completion.sh 
