@@ -56,7 +56,12 @@ git_prompt ()
 PROMPT_COMMAND='PS1="${TITLEBAR}$(git_prompt) ${LIGHT_BLUE}\w \$ ${NO_COLOR}"'
 
 PATH=${HOME}/.bin:${PATH}
-PATH=$HOME/.rvm/bin:$PATH # Add RVM to PATH for scripting
+
+# Add RVM to PATH for scripting
+if [ -f ${HOME}/.rvm/scripts/rvm ]; then
+    source ${HOME}/.rvm/scripts/rvm
+    PATH=${HOME}/.rvm/bin:$PATH 
+fi
 
 # travis.sh is installed by the travis gem
 [[ -f ${HOME}/.travis/travis.sh ]] && source ${HOME}/.travis/travis.sh
