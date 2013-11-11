@@ -8,8 +8,8 @@ fi
 # enable vi mode
 set -o vi
 
-#source ~/.bashrc.d/ansi-colors.sh
-source ${HOME}/.bashrc.d/*
+# setup ansi color variables
+[[ -f ${HOME}/.bashrc.d/ansi-colors.sh ]] && source ${HOME}/.bashrc.d/ansi-colors.sh
 
 # titlebar setup from:
 # http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x361.html
@@ -71,3 +71,7 @@ fi
 
 # setup ssh agent
 [[ -f ${HOME}/.ssh/setup_ssh_agent.sh ]] && source ${HOME}/.ssh/setup_ssh_agent.sh
+
+# setup git command aliases
+[[ -f ${HOME}/.bashrc.d/git-aliases.sh ]] && source ${HOME}/.bashrc.d/git-aliases.sh
+
