@@ -1,0 +1,7 @@
+[user]
+	email = jhoblitt@cpan.org
+	name = Joshua Hoblitt
+[push]
+	default = matching
+[color]
+	diff = auto
