@@ -9,7 +9,9 @@ fi
 set -o vi
 
 # setup ansi color variables
-[[ -f ${HOME}/.bashrc.d/ansi-colors.sh ]] && source ${HOME}/.bashrc.d/ansi-colors.sh
+for i in `ls ~/.bashrc.d/*.sh`; do
+    . $i
+done
 
 # titlebar setup from:
 # http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x361.html
@@ -57,12 +59,6 @@ PROMPT_COMMAND='PS1="${TITLEBAR}$(git_prompt) ${LIGHT_BLUE}\w \$ ${NO_COLOR}"'
 
 PATH=${HOME}/.bin:${PATH}
 
-# Add RVM to PATH for scripting
-if [ -f ${HOME}/.rvm/scripts/rvm ]; then
-    source ${HOME}/.rvm/scripts/rvm
-    PATH=${HOME}/.rvm/bin:$PATH 
-fi
-
 # travis.sh is installed by the travis gem
 [[ -f ${HOME}/.travis/travis.sh ]] && source ${HOME}/.travis/travis.sh
 
@@ -72,6 +68,5 @@ fi
 # setup ssh agent
 [[ -f ${HOME}/.ssh/setup_ssh_agent.sh ]] && source ${HOME}/.ssh/setup_ssh_agent.sh
 
-# setup git command aliases
-[[ -f ${HOME}/.bashrc.d/git-aliases.sh ]] && source ${HOME}/.bashrc.d/git-aliases.sh
-
+# This *must* be last line to the file to keep RVM happy
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

@@ -1,0 +1,6 @@
+alias be="bundle exec"
+alias ber="bundle exec rake"
+alias bers="bundle exec rake spec"
+alias berss="bundle exec rake spec:system"
+alias bu="bundle update"
+alias bi="bundle install"
