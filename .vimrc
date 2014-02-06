@@ -66,3 +66,5 @@ if &diff
   map Q :cquit!<CR>
   map q :cquit!<CR>
 endif
+
+let g:vim_markdown_folding_disabled=1
