@@ -68,5 +68,8 @@ PATH=${HOME}/.bin:${PATH}
 # setup ssh agent
 [[ -f ${HOME}/.ssh/setup_ssh_agent.sh ]] && source ${HOME}/.ssh/setup_ssh_agent.sh
 
+# Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
 # This *must* be last line to the file to keep RVM happy
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
