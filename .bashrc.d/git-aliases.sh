@@ -6,6 +6,7 @@ alias gc="git commit"
 alias gca="git commit --amend"
 alias gd="git diff"
 alias gdc="git diff --cached"
+alias gds="git diff --stat"
 alias gfa="git fetch --all"
 alias gl="git log"
 # gp would probably be too easily confused between push and pull; rely on bash
