@@ -16,6 +16,20 @@ autocmd FileType perl :set cindent
 autocmd BufEnter *.t set filetype=perl
 autocmd FileType ruby :set tabstop=2
 autocmd FileType ruby :set shiftwidth=2
+autocmd BufEnter Vagrantfile set filetype=ruby
+autocmd BufEnter Rakefile set filetype=ruby
+
+autocmd FileType javascript :set tabstop=2
+autocmd FileType javascript :set shiftwidth=2
+
+autocmd FileType html :set tabstop=2
+autocmd FileType html :set shiftwidth=2
+
+autocmd FileType css :set tabstop=2
+autocmd FileType css :set shiftwidth=2
+
+autocmd FileType dot :set tabstop=2
+autocmd FileType dot :set shiftwidth=2
 
 execute pathogen#infect()
  
@@ -68,3 +82,24 @@ if &diff
 endif
 
 let g:vim_markdown_folding_disabled=1
+
+" highlight trailing whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+augroup WhitespaceMatch
+  " Remove ALL autocommands for the WhitespaceMatch group.
+  autocmd!
+  autocmd BufWinEnter * let w:whitespace_match_number =
+        \ matchadd('ExtraWhitespace', '\s\+$')
+  autocmd InsertEnter * call s:ToggleWhitespaceMatch('i')
+  autocmd InsertLeave * call s:ToggleWhitespaceMatch('n')
+augroup END
+function! s:ToggleWhitespaceMatch(mode)
+  let pattern = (a:mode == 'i') ? '\s\+\%#\@<!$' : '\s\+$'
+  if exists('w:whitespace_match_number')
+    call matchdelete(w:whitespace_match_number)
+    call matchadd('ExtraWhitespace', pattern, 10, w:whitespace_match_number)
+  else
+    " Something went wrong, try to be graceful.
+    let w:whitespace_match_number =  matchadd('ExtraWhitespace', pattern)
+  endif
+endfunction
