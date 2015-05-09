@@ -5,3 +5,5 @@
 	default = matching
 [color]
 	diff = auto
+[core]
+	whitespace = tab-in-indent
